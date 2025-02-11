@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { MemoryRouter as Router, Routes, Route } from "react-router-dom";
 import QuotePage from "./pages/QuotePage";
 import DailyReminder from "./pages/DailyReminder";
 

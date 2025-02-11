@@ -11,6 +11,8 @@ const DailyReminderData = [
     { text: "Review form Submissions", time: "10:30AM" },
     { text: "Attend A.Js meeting", time: "3:45PM", repeat: true },
   ]
+
+
 const DailyReminder: React.FC = () => {
 
     const [showForm, setShowForm] = useState(false);
