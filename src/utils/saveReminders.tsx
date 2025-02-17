@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { openDB, IDBPDatabase } from "idb";
 
-const DB_NAME = "AdFriendDB"
+const DB_NAME = "adFriendDB"
 const STORE_NAME = "reminders"
 
 export interface Reminder {
@@ -15,7 +15,7 @@ export interface Reminder {
 }
 
 export const getDB = async (): Promise<IDBPDatabase> => {
-  return openDB(DB_NAME, 1);
+  return openDB(DB_NAME, 2);
 }
 
 export const saveReminders = async (reminders: Reminder) => {
