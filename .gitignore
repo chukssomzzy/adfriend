@@ -22,3 +22,18 @@ build-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Ignore Vim swap files
+*.swp
+*.swo
+
+# Ignore Vim backup files
+*.bak
+*.un~
+*.tmp
+
+# Ignore Vim undo history files
+*.undo
+*.un~
+
+*.pem

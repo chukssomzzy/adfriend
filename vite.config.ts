@@ -15,6 +15,10 @@ export default defineConfig({
         {
           src: "src/scripts/*",
           dest: "./scripts"
+        }, 
+        {
+          src: "src/assets/*",
+          dest: "./icons"
         }
       ],
     }),
