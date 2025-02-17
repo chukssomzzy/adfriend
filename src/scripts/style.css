@@ -1,0 +1,253 @@
+ /* Base Reset for Ad Replacement Boxes */
+.motivation-box,
+.reminder-box {
+    all: initial !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+    margin: 10px 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 999999 !important;
+}
+
+/* AdSense Size Matching */
+.ad-size-300x250, .ad-size-rectangle {
+    width: 300px !important;
+    height: 250px !important;
+}
+
+.ad-size-728x90, .ad-size-leaderboard {
+    width: 728px !important;
+    height: 90px !important;
+}
+
+.ad-size-300x600, .ad-size-skyscraper {
+    width: 300px !important;
+    height: 600px !important;
+}
+
+.ad-size-responsive {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 90px !important;
+}
+
+/* Motivational Quote Box Styles */
+.motivation-box {
+    min-height: 90px !important;
+    padding: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.quote-content {
+    text-align: center !important;
+    max-width: 100% !important;
+    padding: 0 15px !important;
+}
+
+.quote-text {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    color: #333 !important;
+    margin-bottom: 10px !important;
+    font-style: italic !important;
+    word-wrap: break-word !important;
+}
+
+.quote-author {
+    font-size: 14px !important;
+    color: #666 !important;
+    font-weight: 500 !important;
+}
+
+/* Daily Reminder Box Styles */
+.reminder-box {
+    min-height: 90px !important;
+    max-height: 300px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+.reminder-header {
+    padding: 15px !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.reminder-title {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+}
+
+.reminder-timestamp {
+    font-size: 12px !important;
+    color: #666 !important;
+}
+
+.reminder-container {
+    flex: 1 !important;
+    overflow: hidden !important;
+}
+
+.reminder-list {
+    height: 100% !important;
+    overflow-y: auto !important;
+    padding: 10px 15px !important;
+}
+
+/* Reminder Items */
+.reminder-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.reminder-item:last-child {
+    border-bottom: none !important;
+}
+
+.reminder-text {
+    flex: 1 !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    margin-right: 15px !important;
+}
+
+.reminder-time {
+    font-size: 12px !important;
+    color: #666 !important;
+    white-space: nowrap !important;
+}
+
+/* Custom Scrollbar */
+.reminder-list::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.reminder-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-radius: 3px !important;
+}
+
+.reminder-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-radius: 3px !important;
+}
+
+.reminder-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover Effects */
+.motivation-box:hover,
+.reminder-box:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quote-text {
+        font-size: 14px !important;
+    }
+    
+    .quote-author {
+        font-size: 12px !important;
+    }
+    
+    .reminder-box {
+        max-height: 250px !important;
+    }
+    
+    .reminder-header {
+        padding: 10px !important;
+    }
+    
+    .reminder-text {
+        font-size: 12px !important;
+    }
+    
+    .reminder-time {
+        font-size: 11px !important;
+    }
+
+    .ad-size-728x90 {
+        width: 320px !important;
+        height: 100px !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .motivation-box,
+    .reminder-box {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        break-inside: avoid !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .motivation-box,
+    .reminder-box {
+        background: white !important;
+        border: 2px solid black !important;
+    }
+    
+    .quote-text,
+    .reminder-text {
+        color: black !important;
+    }
+}
+
+/* Animation Optimization */
+@media (prefers-reduced-motion: reduce) {
+    .motivation-box,
+    .reminder-box {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .reminder-text {
+    margin-right: 0 !important;
+    margin-left: 15px !important;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .motivation-box,
+    .reminder-box {
+        background: linear-gradient(135deg, #2d3436 0%, #2c3e50 100%) !important;
+    }
+
+    .quote-text,
+    .reminder-text {
+        color: #f5f6fa !important;
+    }
+
+    .quote-author,
+    .reminder-time {
+        color: #dcdde1 !important;
+    }
+
+    .reminder-header {
+        background: rgba(0, 0, 0, 0.2) !important;
+    }
+}
