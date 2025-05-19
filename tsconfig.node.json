@@ -1,24 +1,18 @@
+// tsconfig.node.json
 {
   "compilerOptions": {
+    "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "target": "ES2022",
     "lib": ["ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noEmit": false, // Allow emitting for referenced project
+    "declaration": true, // Generate .d.ts files
+    "emitDeclarationOnly": true // Only emit .d.ts files
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "eslint.config.js"]
 }
