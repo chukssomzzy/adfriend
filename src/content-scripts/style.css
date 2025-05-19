@@ -1,0 +1,201 @@
+/* src/content-scripts/style.css */
+/* Base Reset for Ad Replacement Boxes */
+.motivation-box,
+.reminder-box {
+    all: initial !important; /* Resets all inherited styles */
+    box-sizing: border-box !important;
+    width: 100% !important; /* Default width, can be overridden by specific ad sizes */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%) !important;
+    margin: 0 !important; /* Ad replacer will handle placement/spacing */
+    padding: 0 !important;
+    position: relative !important; /* For potential internal absolute positioning */
+    overflow: hidden !important;
+    z-index: auto !important; /* Avoid excessively high z-index unless necessary for specific cases */
+    border: 1px solid #ddd !important; /* Subtle border */
+    display: flex !important; /* Use flex for internal layout */
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    font-size: 14px !important; /* Base font size */
+    color: #333 !important;
+}
+
+/* AdSense Size Matching (applied by AdReplacer if needed) */
+.ad-size-300x250 { width: 300px !important; height: 250px !important; }
+.ad-size-rectangle { width: 300px !important; height: 250px !important; } /* Alias */
+.ad-size-728x90 { width: 728px !important; height: 90px !important; }
+.ad-size-leaderboard { width: 728px !important; height: 90px !important; } /* Alias */
+.ad-size-300x600 { width: 300px !important; height: 600px !important; }
+.ad-size-skyscraper { width: 300px !important; height: 600px !important; } /* Alias */
+.ad-size-320x100 { width: 320px !important; height: 100px !important; }
+.ad-size-responsive { /* Responsive might need different handling or be a min-height */
+    width: 100% !important;
+    min-height: 90px !important;
+    height: auto !important; /* Or specific height if known */
+}
+
+
+/* Motivational Quote Box Styles */
+.motivation-box {
+    padding: 15px !important; /* Consistent padding */
+}
+
+.quote-content {
+    width: 100% !important;
+}
+
+.quote-text {
+    font-size: 1em !important; /* Relative to parent box */
+    line-height: 1.5 !important;
+    color: #333333 !important;
+    margin-bottom: 10px !important;
+    font-style: italic !important;
+    word-wrap: break-word !important;
+    max-height: 70% !important; /* Limit text height to leave space for author */
+    overflow: hidden !important; /* Hide overflow text nicely */
+    text-overflow: ellipsis !important;
+}
+
+.quote-author {
+    font-size: 0.9em !important; /* Relative to parent box */
+    color: #555555 !important;
+    font-weight: 500 !important;
+    margin-top: auto !important; /* Pushes author to the bottom if quote-text is short */
+}
+
+/* Daily Reminder Box Styles */
+.reminder-box {
+    /* min-height: 90px !important; Default size applied by ad-size-* */
+    /* max-height: 300px !important; Can be controlled by ad-size-* or specific logic */
+}
+
+.reminder-header {
+    padding: 10px 15px !important;
+    background: rgba(0, 0, 0, 0.03) !important; /* Lighter header */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.reminder-title {
+    font-size: 0.95em !important;
+    font-weight: 600 !important;
+    color: #333333 !important;
+}
+
+.reminder-timestamp {
+    font-size: 0.8em !important;
+    color: #666666 !important;
+}
+
+.reminder-list-container {
+    flex-grow: 1 !important; /* Allow list to take available space */
+    overflow: hidden !important; /* Important for scrollbar containment */
+    width: 100% !important;
+    padding: 0 10px !important; /* Padding for list items */
+}
+
+.reminder-list {
+    height: 100% !important;
+    overflow-y: auto !important;
+    padding-right: 5px; /* Space for scrollbar if it appears */
+}
+
+/* Reminder Items */
+.reminder-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px 5px !important; /* Padding within each item */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    font-size: 0.9em !important;
+}
+
+.reminder-item:last-child {
+    border-bottom: none !important;
+}
+
+.reminder-text {
+    flex-grow: 1 !important; /* Text takes most space */
+    color: #333333 !important;
+    margin-right: 10px !important;
+    text-align: left !important; /* Align text to left */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important; /* Prevent wrapping for simplicity */
+}
+
+.reminder-time {
+    color: #555555 !important;
+    white-space: nowrap !important; /* Prevent time from wrapping */
+    font-weight: 500 !important;
+}
+
+/* Custom Scrollbar for Webkit browsers */
+.reminder-list::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.reminder-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02) !important; /* Very subtle track */
+    border-radius: 3px !important;
+}
+
+.reminder-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2) !important; /* Darker thumb */
+    border-radius: 3px !important;
+}
+
+.reminder-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover Effects (subtle) */
+.motivation-box:hover,
+.reminder-box:hover {
+    transform: translateY(-1px) !important; /* Less dramatic lift */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12) !important; /* Softer shadow */
+}
+
+/* Dark Mode Support (Example) */
+@media (prefers-color-scheme: dark) {
+    .motivation-box,
+    .reminder-box {
+        background: linear-gradient(135deg, #2d3436 0%, #222831 100%) !important;
+        border-color: #444 !important;
+        color: #f0f0f0 !important;
+    }
+
+    .quote-text, .quote-author,
+    .reminder-text, .reminder-time,
+    .reminder-title, .reminder-timestamp {
+        color: #e0e0e0 !important;
+    }
+     .quote-author, .reminder-time, .reminder-timestamp {
+        color: #bbbbbb !important;
+    }
+
+    .reminder-header {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .reminder-item {
+        border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .reminder-list::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.25) !important;
+    }
+    .reminder-list::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.35) !important;
+    }
+}
